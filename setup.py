@@ -23,10 +23,10 @@ along with pyW800rf32.  See the file COPYING.txt in the distribution.
 If not, see <http://www.gnu.org/licenses/>.
 '''
 
-from setuptools import setup
+import setuptools
 
-setup(
-    name = 'W800rf32',
+setuptools.setup(
+    name = 'pyW800rf32',
     packages = setuptools.find_packages(),
     version = '0.1',
     description = 'a library to communicate with the W800rf32 family of devices',
