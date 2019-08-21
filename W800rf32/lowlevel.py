@@ -37,12 +37,14 @@ hcodeDict = {
 # Parse the data packet, check length and take last 4 bytes if longer than 4
 def parse(data):
     """ Parse a packet from a bytearray """
-    if data[0] == 0 or len(data) < 4:
+    #if data[0] == 0 or len(data) < 4:
+    if len(data) < 4:
         # null length packet - sometimes happens on initialization
         return None
 
     # take only last 4 bytes
     expected_length = 4
+
     if len(data) > expected_length:
         data = data[-4:]
 
@@ -83,7 +85,6 @@ class DecodeW800Packet():
 
         # Get the house code
         house_code = hcodeDict[b3 & 0x0f]
-
         # Next find unit number
         x = b1 >> 3
         x1 = (b1 & 0x02) << 1

@@ -107,7 +107,7 @@ class PySerialTransport(W800rf32Transport):
         data = None
         while self._run_event.is_set():
             try:
-                data = self.serial.read()
+                data = self.serial.read(4)
             except TypeError:
                 continue
             except serial.serialutil.SerialException:
@@ -120,8 +120,6 @@ class PySerialTransport(W800rf32Transport):
             if not data or data == '\x00':
                 continue
             buffer = bytearray(data)
-            data = self.serial.read(buffer[0])
-            buffer.extend(bytearray(data))
             if self.debug:
                 print("W800rf32: Recv: " +
                       " ".join("0x{0:02x}".format(x) for x in buffer))

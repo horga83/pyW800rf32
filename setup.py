@@ -28,8 +28,8 @@ import setuptools
 setuptools.setup(
     name = 'pyW800rf32',
     packages = setuptools.find_packages(),
-    version = '0.1',
-    description = 'a library to communicate with the W800rf32 family of devices',
+    version = '0.2',
+    description = 'A library to communicate with the W800rf32 family of devices',
     author='George Farris',
     author_email='farrisg@gmsys.com',
     url='https://github.com/horga83/W800rf32',
