@@ -12,7 +12,7 @@ KR19A keychain remote
 
 MS16A Motion sensor
 
-Others may work, test with teh receive.py program in examples.
+Others may work, test with the receive.py program in examples.
 
 Using
 =====
