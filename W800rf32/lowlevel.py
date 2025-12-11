@@ -91,22 +91,20 @@ class DecodeW800Packet():
         y = (b3 & 0x20) >> 2
         unit_number = x + x1 + y + 1
 
-        self.device = "{0}{1}".format(house_code, unit_number)
-
         # Find command
         # 0x19 and 0x11 map to dim and bright but we don't support dim  and
-        # bright here so we map it to the illegal unit code "0". 0x11 and
-        # 0x19 will not map correctly on all keypads.  4 unit keypads will
-        # have units 1 to 3 correct but unit 4 will be 4 for "on" but 5 for
-        # "off".  Five unit keypads will be opposite, 5 will be "on" and 4
-        # will be "off" but we already have a 4 "off".
+        # bright here. 0x11 and 0x19 will not map correctly on all keypads.
+        # 4 unit keypads such as RSS18 will work but 5 unit kepads with
+        # DIM./BRIGHT keys will not be supported.
+
         if b1 == 0x19:
             self.command = 'Off'
-            # self.unit_number = 0
         elif b1 == 0x11:
             self.command = 'On'
-            # self.unit_number = 0
+            unit_number += 1
         elif b1 & 0x05 == 4:
             self.command = 'Off'
         elif b1 & 0x05 == 0:
             self.command = 'On'
+
+        self.device = "{0}{1}".format(house_code, unit_number)
