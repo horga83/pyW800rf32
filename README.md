@@ -4,6 +4,13 @@ http://www.wgldesigns.com/w800.html
 
 See https://github.com/horga83/pyW800rf32 for the latest version.
 
+I wrote this to support X10 devices for Home Assistant.  These devices work:
+RSS18 4 unitkeypads
+KR19A keychain remote
+MS16A Motion sensor
+
+Others may work, test with teh receive.py program in examples.
+
 Using
 =====
 
