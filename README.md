@@ -6,7 +6,7 @@ See https://github.com/horga83/pyW800rf32 for the latest version.
 
 I wrote this to support X10 devices for Home Assistant.  These devices work:
 
-RSS18 4 unitkeypads
+RSS18 4 unit keypads, BRIGHT/DIM keys mapped to unit 4 ON/OFF
 
 KR19A keychain remote
 
